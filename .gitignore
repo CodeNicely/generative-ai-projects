@@ -1,0 +1,7 @@
+.idea/
+*/venv/
+8002/venv/
+8003/venv/
+*.pyc
+*~
+*.swp
