@@ -1,11 +1,12 @@
 {
   "info": {
-    "name": "Expense Manager API",
+    "name": "Expense Management API",
+    "description": "API collection for the Expense Management application",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
-      "name": "Authentication",
+      "name": "User API",
       "item": [
         {
           "name": "Register User",
@@ -14,7 +15,12 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"username\": \"string\",\n  \"password\": \"string\",\n  \"email\": \"string\"\n}"
+              "raw": "{\n  \"username\": \"string\",\n  \"password\": \"string\",\n  \"email\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
               "raw": "{{base_url}}/api/register",
@@ -31,13 +37,18 @@
           "response": []
         },
         {
-          "name": "Login",
+          "name": "Login User",
           "request": {
             "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"username\": \"string\",\n  \"password\": \"string\"\n}"
+              "raw": "{\n  \"username\": \"string\",\n  \"password\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
               "raw": "{{base_url}}/api/login",
@@ -56,22 +67,21 @@
       ]
     },
     {
-      "name": "Expense Management",
+      "name": "Expense API",
       "item": [
         {
-          "name": "Add Expense",
+          "name": "Create Expense",
           "request": {
             "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}",
-                "type": "text"
-              }
-            ],
+            "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"date\": \"string\",\n  \"amount\": 0,\n  \"category\": \"string\",\n  \"description\": \"string\",\n  \"payment_method\": \"string\"\n}"
+              "raw": "{\n  \"date\": \"string\",\n  \"amount\": \"number\",\n  \"category\": \"string\",\n  \"description\": \"string\",\n  \"payment_method\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": {
               "raw": "{{base_url}}/api/expenses",
@@ -91,13 +101,7 @@
           "name": "Get Expenses",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}",
-                "type": "text"
-              }
-            ],
+            "header": [],
             "url": {
               "raw": "{{base_url}}/api/expenses",
               "protocol": "http",
@@ -107,88 +111,6 @@
               "path": [
                 "api",
                 "expenses"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Expense",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}",
-                "type": "text"
-              }
-            ],
-            "url": {
-              "raw": "{{base_url}}/api/expenses/{{expense_id}}",
-              "protocol": "http",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "api",
-                "expenses",
-                "{{expense_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Expense",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"date\": \"string\",\n  \"amount\": 0,\n  \"category\": \"string\",\n  \"description\": \"string\",\n  \"payment_method\": \"string\"\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/api/expenses/{{expense_id}}",
-              "protocol": "http",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "api",
-                "expenses",
-                "{{expense_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Expense",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}",
-                "type": "text"
-              }
-            ],
-            "url": {
-              "raw": "{{base_url}}/api/expenses/{{expense_id}}",
-              "protocol": "http",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "api",
-                "expenses",
-                "{{expense_id}}"
               ]
             }
           },

@@ -6,6 +6,10 @@ class LeaseTestCase(TestCase):
         # Test lease creation
         pass
 
-    def test_lease_management(self):
-        # Test lease management
+    def test_lease_update(self):
+        # Test lease update
+        pass
+
+    def test_lease_deletion(self):
+        # Test lease deletion
         pass

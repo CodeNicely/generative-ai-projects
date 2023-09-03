@@ -1,5 +1,8 @@
+# web_panel/views.py
+
 from django.shortcuts import render
+from django.http import HttpResponse
 
 
 def home(request):
-    return render(request, 'web_panel/home.html')
+    return HttpResponse('Welcome to the Web Panel!')

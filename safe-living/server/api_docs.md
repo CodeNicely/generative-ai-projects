@@ -1,594 +1,335 @@
 # House Rental App API Documentation
 
-## Base URL
+## Table of Contents
 
-The base URL for all API endpoints is `https://api.houserentalapp.com`
-
-## Authentication
-
-All API endpoints require authentication using JSON Web Tokens (JWT). Clients should include the JWT in the `Authorization` header of each request.
-
-## Endpoints
-
-### Users
-
-#### Register User
-
-- Endpoint: `/api/users/register`
-- Method: `POST`
-- Description: Register a new user
-- Request Body:
-
-```json
-{
-  "username": "example_user",
-  "email": "example@example.com",
-  "password": "password123",
-  "role": "tenant"
-}
-```
-
-- Response Body:
-
-```json
-{
-  "id": 1,
-  "username": "example_user",
-  "email": "example@example.com",
-  "role": "tenant"
-}
-```
-
-#### Login User
-
-- Endpoint: `/api/users/login`
-- Method: `POST`
-- Description: Login a user
-- Request Body:
-
-```json
-{
-  "email": "example@example.com",
-  "password": "password123"
-}
-```
-
-- Response Body:
-
-```json
-{
-  "token": "<JWT_TOKEN>"
-}
-```
-
-### Properties
-
-#### Get All Properties
-
-- Endpoint: `/api/properties`
-- Method: `GET`
-- Description: Get a list of all properties
-- Response Body:
-
-```json
-[
-  {
-    "id": 1,
-    "title": "Example Property",
-    "description": "Lorem ipsum dolor sit amet",
-    "price": 1000,
-    "bedrooms": 3,
-    "location": "New York",
-    "amenities": "Swimming pool, Gym",
-    "landlord": {
-      "id": 1,
-      "username": "example_landlord",
-      "email": "landlord@example.com"
-    }
-  }
-]
-```
-
-#### Create Property
-
-- Endpoint: `/api/properties`
-- Method: `POST`
-- Description: Create a new property
-- Request Body:
-
-```json
-{
-  "title": "Example Property",
-  "description": "Lorem ipsum dolor sit amet",
-  "price": 1000,
-  "bedrooms": 3,
-  "location": "New York",
-  "amenities": "Swimming pool, Gym"
-}
-```
-
-- Response Body:
-
-```json
-{
-  "id": 1,
-  "title": "Example Property",
-  "description": "Lorem ipsum dolor sit amet",
-  "price": 1000,
-  "bedrooms": 3,
-  "location": "New York",
-  "amenities": "Swimming pool, Gym",
-  "landlord": {
-    "id": 1,
-    "username": "example_landlord",
-    "email": "landlord@example.com"
-  }
-}
-```
-
-### Bookings
-
-#### Create Booking
-
-- Endpoint: `/api/bookings`
-- Method: `POST`
-- Description: Create a new booking
-- Request Body:
-
-```json
-{
-  "property_id": 1
-}
-```
-
-- Response Body:
-
-```json
-{
-  "id": 1,
-  "property": {
-    "id": 1,
-    "title": "Example Property",
-    "description": "Lorem ipsum dolor sit amet",
-    "price": 1000,
-    "bedrooms": 3,
-    "location": "New York",
-    "amenities": "Swimming pool, Gym",
-    "landlord": {
-      "id": 1,
-      "username": "example_landlord",
-      "email": "landlord@example.com"
-    }
-  },
-  "tenant": {
-    "id": 1,
-    "username": "example_tenant",
-    "email": "tenant@example.com"
-  },
-  "status": "pending"
-}
-```
-
-### Leases
-
-#### Create Lease
-
-- Endpoint: `/api/leases`
-- Method: `POST`
-- Description: Create a new lease
-- Request Body:
-
-```json
-{
-  "property_id": 1,
-  "start_date": "2022-01-01",
-  "end_date": "2022-12-31"
-}
-```
-
-- Response Body:
-
-```json
-{
-  "id": 1,
-  "property": {
-    "id": 1,
-    "title": "Example Property",
-    "description": "Lorem ipsum dolor sit amet",
-    "price": 1000,
-    "bedrooms": 3,
-    "location": "New York",
-    "amenities": "Swimming pool, Gym",
-    "landlord": {
-      "id": 1,
-      "username": "example_landlord",
-      "email": "landlord@example.com"
-    }
-  },
-  "tenant": {
-    "id": 1,
-    "username": "example_tenant",
-    "email": "tenant@example.com"
-  },
-  "start_date": "2022-01-01",
-  "end_date": "2022-12-31"
-}
-```
-
-### Messages
-
-#### Send Message
-
-- Endpoint: `/api/messages`
-- Method: `POST`
-- Description: Send a message
-- Request Body:
-
-```json
-{
-  "receiver_id": 1,
-  "content": "Hello, how are you?"
-}
-```
-
-- Response Body:
-
-```json
-{
-  "id": 1,
-  "sender": {
-    "id": 1,
-    "username": "example_user",
-    "email": "example@example.com"
-  },
-  "receiver": {
-    "id": 2,
-    "username": "example_landlord",
-    "email": "landlord@example.com"
-  },
-  "content": "Hello, how are you?",
-  "timestamp": "2022-01-01T12:00:00Z"
-}
-```
-
-### Maintenance Requests
-
-#### Create Maintenance Request
-
-- Endpoint: `/api/maintenance-requests`
-- Method: `POST`
-- Description: Create a new maintenance request
-- Request Body:
-
-```json
-{
-  "property_id": 1,
-  "description": "There is a leak in the bathroom"
-}
-```
-
-- Response Body:
-
-```json
-{
-  "id": 1,
-  "property": {
-    "id": 1,
-    "title": "Example Property",
-    "description": "Lorem ipsum dolor sit amet",
-    "price": 1000,
-    "bedrooms": 3,
-    "location": "New York",
-    "amenities": "Swimming pool, Gym",
-    "landlord": {
-      "id": 1,
-      "username": "example_landlord",
-      "email": "landlord@example.com"
-    }
-  },
-  "tenant": {
-    "id": 1,
-    "username": "example_tenant",
-    "email": "tenant@example.com"
-  },
-  "description": "There is a leak in the bathroom",
-  "status": "pending"
-}
-```
-# House Rental App API Documentation
-
-## Base URL
-
-The base URL for all API endpoints is `https://api.houserentalapp.com`
+1. [Authentication](#authentication)
+2. [Users](#users)
+3. [Properties](#properties)
+4. [Bookings](#bookings)
+5. [Leases](#leases)
+6. [Messages](#messages)
+7. [Maintenance Requests](#maintenance-requests)
 
 ## Authentication
 
-All API endpoints require authentication using JSON Web Tokens (JWT). Clients should include the JWT in the `Authorization` header of each request.
+### Register User
 
-## Endpoints
+Endpoint: `/api/register`
 
-### Users
+Method: `POST`
 
-#### Register User
-
-- Endpoint: `/api/users/register`
-- Method: `POST`
-- Description: Register a new user
-- Request Body:
+Request Body:
 
 ```json
 {
-  "username": "example_user",
-  "email": "example@example.com",
-  "password": "password123",
-  "role": "tenant"
+  "username": "string",
+  "email": "string",
+  "password": "string",
+  "role": "string"
 }
 ```
 
-- Response Body:
+### Login User
+
+Endpoint: `/api/login`
+
+Method: `POST`
+
+Request Body:
 
 ```json
 {
-  "id": 1,
-  "username": "example_user",
-  "email": "example@example.com",
-  "role": "tenant"
+  "username": "string",
+  "password": "string"
 }
 ```
 
-#### Login User
+### Logout User
 
-- Endpoint: `/api/users/login`
-- Method: `POST`
-- Description: Login a user
-- Request Body:
+Endpoint: `/api/logout`
+
+Method: `POST`
+
+### Get Current User
+
+Endpoint: `/api/user`
+
+Method: `GET`
+
+## Users
+
+### Get User
+
+Endpoint: `/api/users/{user_id}`
+
+Method: `GET`
+
+### Update User
+
+Endpoint: `/api/users/{user_id}`
+
+Method: `PUT`
+
+Request Body:
 
 ```json
 {
-  "email": "example@example.com",
-  "password": "password123"
+  "username": "string",
+  "email": "string",
+  "password": "string",
+  "role": "string"
 }
 ```
 
-- Response Body:
+### Delete User
+
+Endpoint: `/api/users/{user_id}`
+
+Method: `DELETE`
+
+## Properties
+
+### Get All Properties
+
+Endpoint: `/api/properties`
+
+Method: `GET`
+
+### Get Property
+
+Endpoint: `/api/properties/{property_id}`
+
+Method: `GET`
+
+### Create Property
+
+Endpoint: `/api/properties`
+
+Method: `POST`
+
+Request Body:
 
 ```json
 {
-  "token": "<JWT_TOKEN>"
+  "title": "string",
+  "description": "string",
+  "price": "number",
+  "bedrooms": "number",
+  "location": "string",
+  "amenities": "string",
+  "landlord_id": "number"
 }
 ```
 
-### Properties
+### Update Property
 
-#### Get All Properties
+Endpoint: `/api/properties/{property_id}`
 
-- Endpoint: `/api/properties`
-- Method: `GET`
-- Description: Get a list of all properties
-- Response Body:
+Method: `PUT`
 
-```json
-[
-  {
-    "id": 1,
-    "title": "Example Property",
-    "description": "Lorem ipsum dolor sit amet",
-    "price": 1000,
-    "bedrooms": 3,
-    "location": "New York",
-    "amenities": "Swimming pool, Gym",
-    "landlord": {
-      "id": 1,
-      "username": "example_landlord",
-      "email": "landlord@example.com"
-    }
-  }
-]
-```
-
-#### Create Property
-
-- Endpoint: `/api/properties`
-- Method: `POST`
-- Description: Create a new property
-- Request Body:
+Request Body:
 
 ```json
 {
-  "title": "Example Property",
-  "description": "Lorem ipsum dolor sit amet",
-  "price": 1000,
-  "bedrooms": 3,
-  "location": "New York",
-  "amenities": "Swimming pool, Gym"
+  "title": "string",
+  "description": "string",
+  "price": "number",
+  "bedrooms": "number",
+  "location": "string",
+  "amenities": "string",
+  "landlord_id": "number"
 }
 ```
 
-- Response Body:
+### Delete Property
+
+Endpoint: `/api/properties/{property_id}`
+
+Method: `DELETE`
+
+## Bookings
+
+### Get All Bookings
+
+Endpoint: `/api/bookings`
+
+Method: `GET`
+
+### Get Booking
+
+Endpoint: `/api/bookings/{booking_id}`
+
+Method: `GET`
+
+### Create Booking
+
+Endpoint: `/api/bookings`
+
+Method: `POST`
+
+Request Body:
 
 ```json
 {
-  "id": 1,
-  "title": "Example Property",
-  "description": "Lorem ipsum dolor sit amet",
-  "price": 1000,
-  "bedrooms": 3,
-  "location": "New York",
-  "amenities": "Swimming pool, Gym",
-  "landlord": {
-    "id": 1,
-    "username": "example_landlord",
-    "email": "landlord@example.com"
-  }
+  "property_id": "number",
+  "tenant_id": "number"
 }
 ```
 
-### Bookings
+### Update Booking
 
-#### Create Booking
+Endpoint: `/api/bookings/{booking_id}`
 
-- Endpoint: `/api/bookings`
-- Method: `POST`
-- Description: Create a new booking
-- Request Body:
+Method: `PUT`
+
+Request Body:
 
 ```json
 {
-  "property_id": 1
+  "status": "string"
 }
 ```
 
-- Response Body:
+### Delete Booking
+
+Endpoint: `/api/bookings/{booking_id}`
+
+Method: `DELETE`
+
+## Leases
+
+### Get All Leases
+
+Endpoint: `/api/leases`
+
+Method: `GET`
+
+### Get Lease
+
+Endpoint: `/api/leases/{lease_id}`
+
+Method: `GET`
+
+### Create Lease
+
+Endpoint: `/api/leases`
+
+Method: `POST`
+
+Request Body:
 
 ```json
 {
-  "id": 1,
-  "property": {
-    "id": 1,
-    "title": "Example Property",
-    "description": "Lorem ipsum dolor sit amet",
-    "price": 1000,
-    "bedrooms": 3,
-    "location": "New York",
-    "amenities": "Swimming pool, Gym",
-    "landlord": {
-      "id": 1,
-      "username": "example_landlord",
-      "email": "landlord@example.com"
-    }
-  },
-  "tenant": {
-    "id": 1,
-    "username": "example_tenant",
-    "email": "tenant@example.com"
-  },
-  "status": "pending"
+  "property_id": "number",
+  "tenant_id": "number",
+  "start_date": "string",
+  "end_date": "string"
 }
 ```
 
-### Leases
+### Update Lease
 
-#### Create Lease
+Endpoint: `/api/leases/{lease_id}`
 
-- Endpoint: `/api/leases`
-- Method: `POST`
-- Description: Create a new lease
-- Request Body:
+Method: `PUT`
+
+Request Body:
 
 ```json
 {
-  "property_id": 1,
-  "start_date": "2022-01-01",
-  "end_date": "2022-12-31"
+  "start_date": "string",
+  "end_date": "string"
 }
 ```
 
-- Response Body:
+### Delete Lease
+
+Endpoint: `/api/leases/{lease_id}`
+
+Method: `DELETE`
+
+## Messages
+
+### Get All Messages
+
+Endpoint: `/api/messages`
+
+Method: `GET`
+
+### Get Message
+
+Endpoint: `/api/messages/{message_id}`
+
+Method: `GET`
+
+### Create Message
+
+Endpoint: `/api/messages`
+
+Method: `POST`
+
+Request Body:
 
 ```json
 {
-  "id": 1,
-  "property": {
-    "id": 1,
-    "title": "Example Property",
-    "description": "Lorem ipsum dolor sit amet",
-    "price": 1000,
-    "bedrooms": 3,
-    "location": "New York",
-    "amenities": "Swimming pool, Gym",
-    "landlord": {
-      "id": 1,
-      "username": "example_landlord",
-      "email": "landlord@example.com"
-    }
-  },
-  "tenant": {
-    "id": 1,
-    "username": "example_tenant",
-    "email": "tenant@example.com"
-  },
-  "start_date": "2022-01-01",
-  "end_date": "2022-12-31"
+  "sender_id": "number",
+  "receiver_id": "number",
+  "content": "string"
 }
 ```
 
-### Messages
+### Delete Message
 
-#### Send Message
+Endpoint: `/api/messages/{message_id}`
 
-- Endpoint: `/api/messages`
-- Method: `POST`
-- Description: Send a message
-- Request Body:
+Method: `DELETE`
+
+## Maintenance Requests
+
+### Get All Maintenance Requests
+
+Endpoint: `/api/maintenance-requests`
+
+Method: `GET`
+
+### Get Maintenance Request
+
+Endpoint: `/api/maintenance-requests/{request_id}`
+
+Method: `GET`
+
+### Create Maintenance Request
+
+Endpoint: `/api/maintenance-requests`
+
+Method: `POST`
+
+Request Body:
 
 ```json
 {
-  "receiver_id": 1,
-  "content": "Hello, how are you?"
+  "property_id": "number",
+  "tenant_id": "number",
+  "description": "string"
 }
 ```
 
-- Response Body:
+### Update Maintenance Request
+
+Endpoint: `/api/maintenance-requests/{request_id}`
+
+Method: `PUT`
+
+Request Body:
 
 ```json
 {
-  "id": 1,
-  "sender": {
-    "id": 1,
-    "username": "example_user",
-    "email": "example@example.com"
-  },
-  "receiver": {
-    "id": 2,
-    "username": "example_landlord",
-    "email": "landlord@example.com"
-  },
-  "content": "Hello, how are you?",
-  "timestamp": "2022-01-01T12:00:00Z"
+  "status": "string"
 }
 ```
 
-### Maintenance Requests
+### Delete Maintenance Request
 
-#### Create Maintenance Request
+Endpoint: `/api/maintenance-requests/{request_id}`
 
-- Endpoint: `/api/maintenance-requests`
-- Method: `POST`
-- Description: Create a new maintenance request
-- Request Body:
-
-```json
-{
-  "property_id": 1,
-  "description": "There is a leak in the bathroom"
-}
-```
-
-- Response Body:
-
-```json
-{
-  "id": 1,
-  "property": {
-    "id": 1,
-    "title": "Example Property",
-    "description": "Lorem ipsum dolor sit amet",
-    "price": 1000,
-    "bedrooms": 3,
-    "location": "New York",
-    "amenities": "Swimming pool, Gym",
-    "landlord": {
-      "id": 1,
-      "username": "example_landlord",
-      "email": "landlord@example.com"
-    }
-  },
-  "tenant": {
-    "id": 1,
-    "username": "example_tenant",
-    "email": "tenant@example.com"
-  },
-  "description": "There is a leak in the bathroom",
-  "status": "pending"
-}
-```
+Method: `DELETE`

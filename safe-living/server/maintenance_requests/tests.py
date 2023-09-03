@@ -6,6 +6,10 @@ class MaintenanceRequestTestCase(TestCase):
         # Test maintenance request creation
         pass
 
-    def test_maintenance_request_status_update(self):
-        # Test maintenance request status update
+    def test_maintenance_request_update(self):
+        # Test maintenance request update
+        pass
+
+    def test_maintenance_request_deletion(self):
+        # Test maintenance request deletion
         pass

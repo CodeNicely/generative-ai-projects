@@ -6,6 +6,10 @@ class BookingTestCase(TestCase):
         # Test booking creation
         pass
 
-    def test_booking_status_update(self):
-        # Test booking status update
+    def test_booking_update(self):
+        # Test booking update
+        pass
+
+    def test_booking_deletion(self):
+        # Test booking deletion
         pass

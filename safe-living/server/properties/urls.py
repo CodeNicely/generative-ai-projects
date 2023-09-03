@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from .views import PropertyListCreateView, PropertyRetrieveUpdateDestroyView
 
 
 urlpatterns = [
-    path('properties/', views.PropertyList.as_view(), name='property-list'),
-    path('properties/<int:property_id>/', views.PropertyDetail.as_view(), name='property-detail'),
+    path('properties/', PropertyListCreateView.as_view(), name='property-list-create'),
+    path('properties/<int:pk>/', PropertyRetrieveUpdateDestroyView.as_view(), name='property-retrieve-update-destroy'),
 ]

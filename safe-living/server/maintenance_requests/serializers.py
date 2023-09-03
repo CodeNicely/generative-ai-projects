@@ -5,4 +5,4 @@ from .models import MaintenanceRequest
 class MaintenanceRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = MaintenanceRequest
-        fields = ['id', 'property', 'tenant', 'description', 'status']
+        fields = ['id', 'property_id', 'tenant_id', 'description', 'status']

@@ -6,6 +6,10 @@ class UserTestCase(TestCase):
         # Test user creation
         pass
 
-    def test_user_authentication(self):
-        # Test user authentication
+    def test_user_update(self):
+        # Test user update
+        pass
+
+    def test_user_deletion(self):
+        # Test user deletion
         pass

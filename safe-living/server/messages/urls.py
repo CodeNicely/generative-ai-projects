@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from .views import MessageListCreateView, MessageRetrieveUpdateDestroyView
 
 
 urlpatterns = [
-    path('messages/', views.MessageList.as_view(), name='message-list'),
-    path('messages/<int:message_id>/', views.MessageDetail.as_view(), name='message-detail'),
+    path('messages/', MessageListCreateView.as_view(), name='message-list-create'),
+    path('messages/<int:pk>/', MessageRetrieveUpdateDestroyView.as_view(), name='message-retrieve-update-destroy'),
 ]

@@ -6,6 +6,10 @@ class PropertyTestCase(TestCase):
         # Test property creation
         pass
 
-    def test_property_listing(self):
-        # Test property listing
+    def test_property_update(self):
+        # Test property update
+        pass
+
+    def test_property_deletion(self):
+        # Test property deletion
         pass

@@ -21,13 +21,14 @@
 | description | String   | Description of the expense |
 | payment_method | String | Payment method used |
 
-## Table: Images
+## Table: Attachments
 
 | Column Name | Data Type | Description |
 |-------------|----------|-------------|
 | id          | Integer  | Primary key |
 | expense_id  | Integer  | Foreign key referencing the Expenses table |
-| image_url   | String   | URL of the attached image |
+| file_path   | String   | File path of the attachment |
+
 # Database Documentation
 
 ## Table: Users
@@ -51,10 +52,11 @@
 | description | String   | Description of the expense |
 | payment_method | String | Payment method used |
 
-## Table: Images
+## Table: Attachments
 
 | Column Name | Data Type | Description |
 |-------------|----------|-------------|
 | id          | Integer  | Primary key |
 | expense_id  | Integer  | Foreign key referencing the Expenses table |
-| image_url   | String   | URL of the attached image |
+| file_path   | String   | File path of the attachment |
+

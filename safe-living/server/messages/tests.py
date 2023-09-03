@@ -6,6 +6,10 @@ class MessageTestCase(TestCase):
         # Test message creation
         pass
 
-    def test_message_sending(self):
-        # Test message sending
+    def test_message_update(self):
+        # Test message update
+        pass
+
+    def test_message_deletion(self):
+        # Test message deletion
         pass

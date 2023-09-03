@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from .views import MaintenanceRequestListCreateView, MaintenanceRequestRetrieveUpdateDestroyView
 
 
 urlpatterns = [
-    path('maintenance-requests/', views.MaintenanceRequestList.as_view(), name='maintenance-request-list'),
-    path('maintenance-requests/<int:maintenance_request_id>/', views.MaintenanceRequestDetail.as_view(), name='maintenance-request-detail'),
+    path('maintenance-requests/', MaintenanceRequestListCreateView.as_view(), name='maintenance-request-list-create'),
+    path('maintenance-requests/<int:pk>/', MaintenanceRequestRetrieveUpdateDestroyView.as_view(), name='maintenance-request-retrieve-update-destroy'),
 ]
