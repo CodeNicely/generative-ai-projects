@@ -1,0 +1,103 @@
+{
+  "info": {
+    "name": "Grocery Delivery App",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User Registration",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"string\",\n  \"email\": \"string\",\n  \"password\": \"string\"\n}"
+        },
+        "url": {
+          "raw": "https://grocerydeliveryapp.com/api/users/register",
+          "protocol": "https",
+          "host": [
+            "grocerydeliveryapp",
+            "com"
+          ],
+          "path": [
+            "api",
+            "users",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"string\",\n  \"password\": \"string\"\n}"
+        },
+        "url": {
+          "raw": "https://grocerydeliveryapp.com/api/users/login",
+          "protocol": "https",
+          "host": [
+            "grocerydeliveryapp",
+            "com"
+          ],
+          "path": [
+            "api",
+            "users",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Product List",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://grocerydeliveryapp.com/api/products",
+          "protocol": "https",
+          "host": [
+            "grocerydeliveryapp",
+            "com"
+          ],
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Product to Cart",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product_id\": 1,\n  \"quantity\": 2\n}"
+        },
+        "url": {
+          "raw": "https://grocerydeliveryapp.com/api/cart/add",
+          "protocol": "https",
+          "host": [
+            "grocerydeliveryapp",
+            "com"
+          ],
+          "path": [
+            "api",
+            "cart",
+            "add"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

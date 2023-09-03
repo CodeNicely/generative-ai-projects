@@ -1,0 +1,20 @@
+/* Custom CSS for Profile page */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-content p {
+  margin-bottom: 10px;
+}
