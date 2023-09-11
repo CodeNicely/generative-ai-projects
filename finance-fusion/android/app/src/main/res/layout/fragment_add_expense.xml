@@ -4,11 +4,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <EditText
+        android:id="@+id/editTextExpenseTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Expense Title" />
+
+    <EditText
+        android:id="@+id/editTextExpenseAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Expense Amount" />
+
+    <Spinner
+        android:id="@+id/spinnerExpenseCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/expense_categories"
+        android:prompt="@string/select_category" />
+
+    <Button
+        android:id="@+id/buttonAddExpense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Expense Fragment"
-        android:textSize="24sp"
-        android:layout_gravity="center" />
+        android:text="Add Expense" />
 
 </LinearLayout>
