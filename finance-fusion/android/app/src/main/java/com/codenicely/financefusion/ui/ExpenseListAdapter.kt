@@ -3,10 +3,9 @@ package com.codenicely.financefusion.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ExpenseListAdapter(private val expenseList: List<Expense>) : RecyclerView.Adapter<ExpenseListAdapter.ExpenseViewHolder>() {
+class ExpenseListAdapter : RecyclerView.Adapter<ExpenseListAdapter.ExpenseViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpenseViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_expense, parent, false)
@@ -14,26 +13,16 @@ class ExpenseListAdapter(private val expenseList: List<Expense>) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: ExpenseViewHolder, position: Int) {
-        val expense = expenseList[position]
-        holder.bind(expense)
+        // Bind data to views in the ViewHolder
     }
 
     override fun getItemCount(): Int {
-        return expenseList.size
+        // Return the number of items in the list
+        return 0
     }
 
     inner class ExpenseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        private val textViewExpenseTitle: TextView = itemView.findViewById(R.id.textViewExpenseTitle)
-        private val textViewExpenseAmount: TextView = itemView.findViewById(R.id.textViewExpenseAmount)
-        private val textViewExpenseCategory: TextView = itemView.findViewById(R.id.textViewExpenseCategory)
-
-        fun bind(expense: Expense) {
-            textViewExpenseTitle.text = expense.title
-            textViewExpenseAmount.text = expense.amount.toString()
-            textViewExpenseCategory.text = expense.category
-        }
-
+        // Declare views in the ViewHolder
     }
 
 }

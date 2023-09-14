@@ -4,24 +4,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextExpenseTitle"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Expense Title" />
+        android:text="Date" />
 
     <EditText
-        android:id="@+id/editTextExpenseAmount"
+        android:id="@+id/editTextAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Expense Amount" />
+        android:hint="Amount" />
 
     <Spinner
-        android:id="@+id/spinnerExpenseCategory"
+        android:id="@+id/spinnerCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/expense_categories"
-        android:prompt="@string/select_category" />
+        android:entries="@array/category_array" />
+
+    <EditText
+        android:id="@+id/editTextDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description" />
+
+    <Spinner
+        android:id="@+id/spinnerPaymentMethod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/payment_method_array" />
 
     <Button
         android:id="@+id/buttonAddExpense"

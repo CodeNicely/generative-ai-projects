@@ -30,9 +30,9 @@
         android:text="Login" />
 
     <TextView
-        android:id="@+id/textViewForgotPassword"
+        android:id="@+id/textViewRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot Password?" />
+        android:text="Register" />
 
 </LinearLayout>

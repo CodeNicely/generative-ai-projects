@@ -1,15 +1,16 @@
 package com.codenicely.financefusion
 
 import android.os.Bundle
-import android.view.MenuItem
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+class MainActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
@@ -20,44 +21,38 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawerLayout = findViewById(R.id.drawerLayout)
         navigationView = findViewById(R.id.navigationView)
-        navigationView.setNavigationItemSelectedListener(this)
 
-        val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        )
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+        // Set up toolbar
+        setSupportActionBar(findViewById(R.id.toolbar))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
 
-        if (savedInstanceState == null) {
-            // Open default fragment
-            openFragment(AuthenticationFragment())
-            navigationView.setCheckedItem(R.id.nav_authentication)
+        // Set up navigation drawer
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menuItemAuthentication -> openFragment(AuthenticationFragment())
+                R.id.menuItemProfile -> openFragment(ProfileFragment())
+                R.id.menuItemExpenseList -> openFragment(ExpenseListFragment())
+                R.id.menuItemAddExpense -> openFragment(AddExpenseFragment())
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
         }
-    }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_authentication -> openFragment(AuthenticationFragment())
-            R.id.nav_profile -> openFragment(ProfileFragment())
-            R.id.nav_expense_list -> openFragment(ExpenseListFragment())
-            R.id.nav_add_expense -> openFragment(AddExpenseFragment())
-        }
-        drawerLayout.closeDrawer(GravityCompat.START)
-        return true
+        // Set default fragment
+        openFragment(AuthenticationFragment())
     }
 
     private fun openFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, fragment)
-            .commit()
+        val fragmentManager: FragmentManager = supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frameLayoutContainer, fragment)
+        fragmentTransaction.commit()
     }
 
-    override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        drawerLayout.openDrawer(GravityCompat.START)
+        return true
     }
 
 }

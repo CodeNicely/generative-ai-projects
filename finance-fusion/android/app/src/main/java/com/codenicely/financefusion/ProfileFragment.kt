@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
+
 class ProfileFragment : Fragment() {
 
     override fun onCreateView(
@@ -19,8 +20,17 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Initialize views and set listeners
-        // TODO: Implement profile logic
+
+        // Initialize views and set click listeners
+        val imageViewProfilePicture = view.findViewById<ImageView>(R.id.imageViewProfilePicture)
+        val textViewName = view.findViewById<TextView>(R.id.textViewName)
+        val textViewEmail = view.findViewById<TextView>(R.id.textViewEmail)
+        val buttonEditProfile = view.findViewById<Button>(R.id.buttonEditProfile)
+
+        // Set click listener for edit profile button
+        buttonEditProfile.setOnClickListener {
+            // Navigate to edit profile screen
+        }
     }
 
 }

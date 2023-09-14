@@ -3,19 +3,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_authentication"
+            android:id="@+id/menuItemAuthentication"
             android:icon="@drawable/ic_authentication"
             android:title="Authentication" />
         <item
-            android:id="@+id/nav_profile"
+            android:id="@+id/menuItemProfile"
             android:icon="@drawable/ic_profile"
             android:title="Profile" />
         <item
-            android:id="@+id/nav_expense_list"
+            android:id="@+id/menuItemExpenseList"
             android:icon="@drawable/ic_expense_list"
             android:title="Expense List" />
         <item
-            android:id="@+id/nav_add_expense"
+            android:id="@+id/menuItemAddExpense"
             android:icon="@drawable/ic_add_expense"
             android:title="Add Expense" />
     </group>
