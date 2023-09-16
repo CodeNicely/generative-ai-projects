@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.codenicely.financefusion'
+    namespace 'com.codenicely.helloworld'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.codenicely.financefusion"
+        applicationId "com.codenicely.helloworld"
         minSdk 24
         targetSdk 33
         versionCode 1
