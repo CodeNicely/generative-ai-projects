@@ -11,7 +11,7 @@
         android:id="@+id/imageViewProfile"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:src="@drawable/ic_profile" />
+        android:src="@drawable/baseline_menu_24" />
 
     <TextView
         android:id="@+id/textViewUsername"

@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.codenicely.financefusion.R
 import kotlinx.android.synthetic.main.fragment_expense_category.*
 
 class ExpenseCategoryFragment : Fragment() {
 
-    private lateinit var adapter: ExpenseCategoryAdapter
+//    private lateinit var adapter: ExpenseCategoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,8 +24,8 @@ class ExpenseCategoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView.layoutManager = LinearLayoutManager(context)
-        adapter = ExpenseCategoryAdapter()
-        recyclerView.adapter = adapter
+//        adapter = ExpenseCategoryAdapter()
+//        recyclerView.adapter = adapter
 
         // TODO: Load expense categories
     }

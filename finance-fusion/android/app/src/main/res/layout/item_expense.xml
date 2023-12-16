@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/textViewExpenseTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +15,7 @@
         android:id="@+id/textViewExpenseAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Expense Amount" />
+        android:text="Expense Amount: INR 100" />
 
     <TextView
         android:id="@+id/textViewExpenseCategory"
